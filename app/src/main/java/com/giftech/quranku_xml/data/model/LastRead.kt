@@ -4,9 +4,9 @@ import com.giftech.quranku_xml.data.source.local.entity.LastReadAyatEntity
 
 
 data class LastRead(
-    val nomorAyat:Int = 1,
-    val nomorSurah:Int = 1,
-    val namaSurah:String = "Al-Fatihah"
+    var nomorAyat:Int = 1,
+    var nomorSurah:Int = 1,
+    var namaSurah:String = "Al-Fatihah"
 )
 
 fun LastRead.toEntity(): LastReadAyatEntity =
