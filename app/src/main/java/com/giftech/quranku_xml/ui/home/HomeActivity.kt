@@ -40,5 +40,10 @@ class HomeActivity : AppCompatActivity() {
                 }
             }
         }
+
+        viewModel.lastRead.observe(this){
+            binding.tvSurahLastread.text = it.namaSurah
+            binding.tvAyatLastread.text = "Ayat ${it.nomorAyat}"
+        }
     }
 }
