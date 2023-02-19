@@ -1,10 +1,11 @@
 package com.giftech.quranku_xml.ui.welcome
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
-import com.giftech.quranku_xml.R
+import androidx.appcompat.app.AppCompatActivity
 import com.giftech.quranku_xml.databinding.ActivityWelcomeBinding
+import com.giftech.quranku_xml.ui.home.HomeActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -15,5 +16,10 @@ class WelcomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.btnGetStarted.setOnClickListener {
+            startActivity(Intent(this,HomeActivity::class.java))
+            finish()
+        }
     }
 }
