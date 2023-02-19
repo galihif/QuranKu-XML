@@ -8,7 +8,9 @@ import com.giftech.quranku_xml.data.model.LastRead
 import com.giftech.quranku_xml.data.model.Surah
 import com.giftech.quranku_xml.databinding.ItemSurahBinding
 
-class SurahAdapter : RecyclerView.Adapter<SurahAdapter.SurahViewHolder>() {
+class SurahAdapter(
+    val onClickItem: (Int) -> Unit
+) : RecyclerView.Adapter<SurahAdapter.SurahViewHolder>() {
 
     private var listSurah = ArrayList<Surah>()
     private lateinit var lastReadAyat: LastRead
@@ -48,10 +50,7 @@ class SurahAdapter : RecyclerView.Adapter<SurahAdapter.SurahViewHolder>() {
                     itemView.context.getString(R.string.surah_type_ayat, surah.type, surah.jumlahAyat)
 
                 itemView.setOnClickListener {
-//                    val intent = Intent(itemView.context, SurahActivity::class.java)
-////                    intent.putExtra(SurahActivity.EXTRA_SURAH, surah)
-////                    intent.putExtra(SurahActivity.EXTRA_LASTREAD, lastReadAyat)
-//                    itemView.context.startActivity(intent)
+                    onClickItem(surah.nomor)
                 }
             }
         }
